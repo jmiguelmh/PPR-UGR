@@ -327,7 +327,7 @@ int main(int argc, char *argv[])
         cout << "ERROR CUDA MEM. COPY IN d_B" << endl;
     }
 
-    // Kernel launch (shared memory is not used to compute C vector)
+    // Kernel launch (shared memory is used to compute C vector)
     smemSize = 4 * Bsize * sizeof(float);
     transformacion_shared<<<NBlocks, Bsize, smemSize>>>(d_A, d_B, d_C, d_D_shared, d_mx_shared);
 
