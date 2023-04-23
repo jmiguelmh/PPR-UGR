@@ -264,7 +264,7 @@ int main(int argc, char *argv[])
 	Tgpu2D=(clock()-time)/CLOCKS_PER_SEC;
 
 	/************************** Results **************************/
-    cout << "CPU time:\t\t" << Tcpu << endl;
+    cout << "CPU time:\t" << Tcpu << endl;
     cout << "GPU (1D) time:\t" << Tgpu1D << endl;
     cout << "GPU (2D) time:\t" << Tgpu2D << endl;
 

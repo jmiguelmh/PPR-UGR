@@ -40,7 +40,7 @@ __global__ void transformacion_no_shared(float *d_A, float *d_B, float *d_C, flo
     {
         if (tid < s)
         {
-            sdata[tid] += sdata[tid + s];
+            sdataC[tid] += sdataC[tid + s];
             *(sdataMX + tid) = *(sdataMX + tid);
             if (*(sdataMX + tid) < *(sdataMX + tid + s))
                 *(sdataMX + tid) = *(sdataMX + tid + s);
@@ -87,7 +87,7 @@ __global__ void transformacion_shared(float *d_A, float *d_B, float *d_C, float 
     {
         if (tid < s)
         {
-            sdata[tid] += sdata[tid + s];
+            sdataC[tid] += sdataC[tid + s];
             *(sdataMX + tid) = *(sdataMX + tid);
             if (*(sdataMX + tid) < *(sdataMX + tid + s))
                 *(sdataMX + tid) = *(sdataMX + tid + s);
