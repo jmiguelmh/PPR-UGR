@@ -144,14 +144,14 @@ int main(int argc, char *argv[])
     // Barrera para esperar que terminen todas las hebras la fase de computo
     MPI_Barrier(MPI_COMM_WORLD);
 
-    // fin de medicion de tiempo
-    Tpar = MPI_Wtime() - tInicio;
-
     // El contenido de local_y no es el resultado final, sino que una parte de este
     // Para obtener el resultado final hay que sumar los local_y de todos los procesos
     // Esta operación se lleva a cabo con un MPI_Reduce
     float *reduce_y = new float[tam];
     MPI_Reduce(local_y, reduce_y, tam, MPI_FLOAT, MPI_SUM, col_rank, row_comm);
+
+    // fin de medicion de tiempo
+    Tpar = MPI_Wtime() - tInicio;
 
     // Recogemos los datos de la multiplicacion, por cada proceso sera un escalar
     // y se recoge en un vector, Gather se asegura de que la recolecci�n se haga
